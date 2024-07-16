@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain Name Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background: #f4f4f4;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Domain Name Generator</h1>
+    <button onclick="generateDomain()">Generate Domain</button>
+    <ul id="domainList"></ul>
+  </div>
+
+  <script>
+    const pronouns = ['the', 'our'];
+    const adjectives = ['great', 'big'];
+    const nouns = ['jogger', 'racoon'];
+    const extensions = ['.com', '.net', '.us', '.io'];
+
+    const generateDomain = () => {
+      const pronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+      const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+      const noun = nouns[Math.floor(Math.random() * nouns.length)];
+      const extension = extensions[Math.floor(Math.random() * extensions.length)];
+      const domain = `${pronoun}${adjective}${noun}${extension}`;
+
+      const domainList = document.getElementById('domainList');
+      const li = document.createElement('li');
+      li.textContent = domain;
+      domainList.appendChild(li);
+    }
+  </script>
+</body>
+</html>
