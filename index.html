@@ -45,16 +45,21 @@
     const extensions = ['.com', '.net', '.us', '.io'];
 
     const generateDomain = () => {
-      const pronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
-      const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-      const noun = nouns[Math.floor(Math.random() * nouns.length)];
-      const extension = extensions[Math.floor(Math.random() * extensions.length)];
-      const domain = `${pronoun}${adjective}${noun}${extension}`;
-
       const domainList = document.getElementById('domainList');
-      const li = document.createElement('li');
-      li.textContent = domain;
-      domainList.appendChild(li);
+      domainList.innerHTML = ''; // Limpiar la lista antes de generar nuevos dominios
+
+      pronouns.forEach(pronoun => {
+        adjectives.forEach(adjective => {
+          nouns.forEach(noun => {
+            extensions.forEach(extension => {
+              const domain = `${pronoun}${adjective}${noun}${extension}`;
+              const li = document.createElement('li');
+              li.textContent = domain;
+              domainList.appendChild(li);
+            });
+          });
+        });
+      });
     }
   </script>
 </body>
